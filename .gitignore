@@ -4,7 +4,7 @@
 
 ### Eclipse ###
 .metadata
-bin/
+bin/*
 tmp/
 *.tmp
 *.bak
@@ -177,6 +177,7 @@ fabric.properties
 ### Java ###
 # Compiled class file
 *.class
+.class
 
 # Log file
 *.log
