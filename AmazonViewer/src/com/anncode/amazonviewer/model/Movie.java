@@ -3,12 +3,22 @@ package com.anncode.amazonviewer.model;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Movie extends Film implements IVisualizable {
+import com.anncode.amazonviewer.dao.MovieDAO;
+
+
+/**
+ * Hereda de {@link Film}
+ * Implementa de {@link IVisualizable}
+ * 
+ * */
+public class Movie extends Film implements IVisualizable, MovieDAO {
 	
 	private int id;
 	private int timeViewed;
 	
-	
+	public Movie() {
+		
+	}
 	public Movie(String title, String genre, String creator, int duration, short year) {
 		super(title, genre, creator, duration);
 		setYear(year);
@@ -19,10 +29,14 @@ public class Movie extends Film implements IVisualizable {
 		return id;
 	}
 	
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public int getTimeViewed() {
 		return timeViewed;
 	}
+	
 	public void setTimeViewed(int timeViewed) {
 		this.timeViewed = timeViewed;
 	}
@@ -44,6 +58,9 @@ public class Movie extends Film implements IVisualizable {
 		return dateI;
 	}
 
+	/**
+	 * {@inheritDoc} 
+	 * */
 	@Override
 	public void stopToSee(Date dateI, Date dateF) {
 		// TODO Auto-generated method stub
@@ -58,21 +75,28 @@ public class Movie extends Film implements IVisualizable {
 	}
 	
 	public static ArrayList<Movie> makeMoviesList() {
-		ArrayList<Movie> movies = new ArrayList();
+		Movie movie = new Movie();
+		//ArrayList<Movie> movies = new ArrayList();
 		
-		for (int i = 1; i <= 5; i++) {
+		/*for (int i = 1; i <= 5; i++) {
 			movies.add(new Movie("Movie " + i, "Genero " + i, "Creador " + i, 120+i, (short)(2017+i)));
-		}
+		}*/
 		
-		return movies;
+		return movie.read();
 	}
 
 
+	/**
+	 * {@inheritDoc} 
+	 * */
 	@Override
 	public void view() {
 		// TODO Auto-generated method stub
 		setViewed(true);
+		Movie movie = new Movie();
+		movie.setMovieViewed(this);
 		Date dateI = startToSee(new Date());
+		
 		
 		for (int i = 0; i < 100000; i++) {
 			System.out.println("..........");

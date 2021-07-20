@@ -2,7 +2,29 @@ package com.anncode.util;
 
 import java.util.Scanner;
 
+/**
+ * 
+ * AMAZONUTIL
+ * Permite ingresar datos por consola
+ * 
+ * <p>
+ * Cuando se ingresa la información, valida que el dato ingresado sea de 0 a 6 
+ * usando el método {@code validateUserResponseMenu()}
+ * 
+ * @author c.can.castillo
+ * @since 2021
+ * @version 1.1
+ * */
+
 public class AmazonUtil {
+	
+	/**
+	 * El método {@code validateUserResponseMenu()} de la clase {@link AmazonUtil} recibe 
+	 * dos parámetros
+	 * @param min el valor minimo de tipo {@code int}
+	 * @param max el valor maximo de tipo {@code int}
+	 * @return retorna un valor entero
+	 * */
 	
 	public static int validateUserResponseMenu(int min, int max) {
 		//Leer la respuesta del usuario
